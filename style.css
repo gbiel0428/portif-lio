@@ -17,7 +17,7 @@ body {
 }
 
 /* ==========================================================================
-   2. BARRA DE NAVEGAÇÃO & MENU DROPDOWN
+   2. BARRA DE NAVEGAÇÃO & MENU DROPDOWN (ALL SCREENS)
    ========================================================================== */
 .navbar {
   display: flex;
@@ -34,7 +34,7 @@ body {
   font-weight: bold;
 }
 
-/* Botão de Menu agora aparece no PC também */
+/* Botão de Menu Hambúrguer */
 .menu-btn {
   display: flex; 
   background: none;
@@ -55,7 +55,7 @@ body {
   border-radius: 2px;
 }
 
-/* Menu Dropdown Universal (Abre e fecha ao clicar) */
+/* Caixa do Menu Flutuante */
 .menu-links {
   display: flex;
   position: absolute;
@@ -71,7 +71,7 @@ body {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
   z-index: 9;
   
-  /* Animação escondida inicialmente */
+  /* Animação de descida suave */
   max-height: 0;
   opacity: 0;
   overflow: hidden;
@@ -79,6 +79,7 @@ body {
   transition: max-height 0.5s ease-in-out, opacity 0.4s ease-in-out, padding 0.5s ease-in-out;
 }
 
+/* Classe ativada pelo JavaScript */
 .menu-links.active {
   max-height: 400px;
   opacity: 1;
@@ -100,7 +101,7 @@ body {
 }
 
 /* ==========================================================================
-   3. CONTEÚDO PRINCIPAL (PÁGINA INICIAL)
+   3. ESTRUTURA DA PÁGINA INICIAL (HERO NOVO)
    ========================================================================== */
 .container {
   flex: 1;
@@ -112,19 +113,57 @@ body {
   padding: 40px 24px;
 }
 
-.container h1 {
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Estilo do Avatar/Foto de Perfil */
+.hero-image img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #00a8ff;
+  box-shadow: 0 0 20px rgba(0, 168, 255, 0.2);
+  background-color: #1e293b; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-image img:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 35px rgba(0, 168, 255, 0.5);
+}
+
+.hero-text h1 {
   font-size: clamp(38px, 8vw, 56px);
   color: #00a8ff;
   margin-bottom: 15px;
 }
 
-.container h2 {
+.hero-text h2 {
   font-size: clamp(18px, 4vw, 22px);
   color: #94a3b8;
   font-weight: 400;
   max-width: 600px;
-  margin-bottom: 35px;
-  line-height: 1.5;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.highlight {
+  color: #f8fafc;
+}
+
+/* Área dos Botões */
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 15px;
 }
 
 .contact-btn {
@@ -137,8 +176,8 @@ body {
   font-weight: bold;
   border-radius: 6px;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
   text-decoration: none;
+  transition: all 0.2s ease-in-out;
 }
 
 .contact-btn:hover {
@@ -146,6 +185,27 @@ body {
   color: #0a0e14;
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0, 168, 255, 0.4);
+}
+
+.secondary-btn {
+  display: inline-block;
+  background-color: #1e293b;
+  border: 2px solid #1e293b;
+  color: #94a3b8;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.secondary-btn:hover {
+  background-color: #28364a;
+  border-color: #28364a;
+  color: #f8fafc;
+  transform: translateY(-3px);
 }
 
 /* ==========================================================================
@@ -473,32 +533,54 @@ body {
 }
 
 /* ==========================================================================
-   8. EFEITOS DE CLIQUE (AÇÃO DO USUÁRIO)
+   8. ANIMAÇÕES & EFEITOS DE CLIQUE (:ACTIVE)
    ========================================================================== */
 .menu-links a:active {
   transform: scale(0.95);
   color: #0088cc !important;
-  transition: transform 0.1s ease;
 }
 
 .contact-btn:active, 
+.secondary-btn:active,
 .card-btn:active {
   transform: translateY(1px) scale(0.98) !important;
   box-shadow: 0 2px 8px rgba(0, 168, 255, 0.2) !important;
   background-color: #0088cc !important;
   border-color: #0088cc !important;
-  transition: transform 0.05s ease, box-shadow 0.05s ease;
 }
 
 .social-links a:active {
   transform: scale(0.96);
   background-color: #0088cc !important;
   color: #0a0e14 !important;
-  transition: transform 0.05s ease;
+}
+
+/* Mãozinha acenando */
+.wave {
+  display: inline-block;
+  animation: wave-animation 2.5s infinite;
+  transform-origin: 70% 70%;
+}
+
+@keyframes wave-animation {
+  0% { transform: rotate(0deg) }
+  10% { transform: rotate(14deg) }
+  20% { transform: rotate(-8deg) }
+  30% { transform: rotate(14deg) }
+  40% { transform: rotate(-4deg) }
+  50% { transform: rotate(10deg) }
+  60% { transform: rotate(0deg) }
+  100% { transform: rotate(0deg) }
+}
+
+/* Efeito de entrada suave da página */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* ==========================================================================
-   9. RESPONSIVIDADE (CELULAR)
+   9. RESPONSIVIDADE (AJUSTES PARA CELULAR)
    ========================================================================== */
 @media (max-width: 768px) {
   .navbar {
@@ -506,7 +588,7 @@ body {
   }
   
   .menu-links {
-    right: 24px; /* Ajusta a margem da caixa do menu para o celular */
+    right: 24px;
   }
 
   .about-content {
