@@ -35,7 +35,7 @@ body {
 }
 
 .menu-btn {
-  display: none;
+  display: none; /* Escondido no PC */
   background: none;
   border: none;
   cursor: pointer;
@@ -54,9 +54,14 @@ body {
   border-radius: 2px;
 }
 
+/* Menu normal do Computador */
 .menu-links {
   display: flex;
   gap: 30px;
+  opacity: 1;
+  max-height: none;
+  pointer-events: auto;
+  overflow: visible;
 }
 
 .menu-links a {
@@ -64,7 +69,7 @@ body {
   text-decoration: none;
   font-size: 16px;
   font-weight: 500;
-  transition: color 0.3s ease;
+  transition: all 0.2s ease-in-out;
 }
 
 .menu-links a:hover,
@@ -110,7 +115,7 @@ body {
   font-weight: bold;
   border-radius: 6px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease-in-out;
   text-decoration: none;
 }
 
@@ -332,7 +337,7 @@ body {
 }
 
 /* ==========================================================================
-   7. SEÇÃO DE CONTATO (Novo)
+   7. SEÇÃO DE CONTATO
    ========================================================================== */
 .contact-container {
   flex: 1;
@@ -412,7 +417,7 @@ body {
   border-radius: 4px;
   text-decoration: none;
   width: 100%;
-  transition: all 0.2s ease;
+  transition: all 0.2s ease-in-out;
   text-align: center;
 }
 
@@ -437,7 +442,7 @@ body {
   text-decoration: none;
   font-size: 14px;
   font-weight: 600;
-  transition: all 0.2s ease;
+  transition: all 0.2s ease-in-out;
 }
 
 .social-links a:hover {
@@ -446,7 +451,32 @@ body {
 }
 
 /* ==========================================================================
-   8. RESPONSIVIDADE (CELULAR)
+   8. EFEITOS DE CLIQUE (AÇÃO DO USUÁRIO)
+   ========================================================================== */
+.menu-links a:active {
+  transform: scale(0.95);
+  color: #0088cc !important;
+  transition: transform 0.1s ease;
+}
+
+.contact-btn:active, 
+.card-btn:active {
+  transform: translateY(1px) scale(0.98) !important;
+  box-shadow: 0 2px 8px rgba(0, 168, 255, 0.2) !important;
+  background-color: #0088cc !important;
+  border-color: #0088cc !important;
+  transition: transform 0.05s ease, box-shadow 0.05s ease;
+}
+
+.social-links a:active {
+  transform: scale(0.96);
+  background-color: #0088cc !important;
+  color: #0a0e14 !important;
+  transition: transform 0.05s ease;
+}
+
+/* ==========================================================================
+   9. RESPONSIVIDADE & MENU MOBILE (CELULAR)
    ========================================================================== */
 @media (max-width: 768px) {
   .navbar {
@@ -454,11 +484,11 @@ body {
   }
 
   .menu-btn {
-    display: flex;
+    display: flex; /* Botão 3 tracinhos aparece no celular */
   }
 
   .menu-links {
-    display: none;
+    display: flex;
     position: absolute;
     top: 75px;
     right: 24px;
@@ -466,15 +496,25 @@ body {
     border: 1px solid #1e293b;
     border-radius: 8px;
     flex-direction: column;
-    padding: 20px;
+    padding: 0px 20px;
     gap: 20px;
     min-width: 200px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
     z-index: 9;
+    
+    /* Animação escondida inicialmente no celular */
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transition: max-height 0.5s ease-in-out, opacity 0.4s ease-in-out, padding 0.5s ease-in-out;
   }
 
   .menu-links.active {
-    display: flex;
+    max-height: 400px;
+    opacity: 1;
+    padding: 20px;
+    pointer-events: auto;
   }
 
   .about-content {
@@ -491,72 +531,3 @@ body {
     max-width: 100%;
   }
 }
-
-/* ==========================================================================
-   9. EFEITOS DE CLIQUE (AÇÃO DO USUÁRIO)
-   ========================================================================== */
-
-/* Efeito ao clicar nas abas do Menu */
-.menu-links a:active {
-  transform: scale(0.95); /* Dá um leve "shrink" (encolhida) ao clicar */
-  color: #0088cc !important; /* Escurece o azul de leve no momento do clique */
-  transition: transform 0.1s ease;
-}
-
-/* Efeito ao clicar no botão principal (Fale Comigo / Enviar Mensagem) */
-.contact-btn:active, 
-.card-btn:active {
-  transform: translateY(1px) scale(0.98) !important; /* O botão "afunda" fisicamente na tela */
-  box-shadow: 0 2px 8px rgba(0, 168, 255, 0.2) !important; /* Reduz a sombra para simular aproximação do fundo */
-  background-color: #0088cc !important; /* Se o botão estiver preenchido, o azul fica mais denso */
-  border-color: #0088cc !important;
-  transition: transform 0.05s ease, box-shadow 0.05s ease; /* Transição super rápida para parecer instantâneo */
-}
-
-/* Efeito ao clicar nos links de redes sociais (LinkedIn / Instagram) */
-.social-links a:active {
-  transform: scale(0.96);
-  background-color: #0088cc !important;
-  color: #0a0e14 !important;
-  transition: transform 0.05s ease;
-}
-
-/* Garante que o efeito de transição suave funcione ao soltar o clique */
-.menu-links a,
-.contact-btn,
-.card-btn,
-.social-links a {
-  transition: all 0.2s ease-in-out;
-}
-
-/* Substitua essas duas classes dentro do seu @media (max-width: 768px) */
-
-  .menu-links {
-    display: flex; /* Mudamos de 'none' para 'flex' para a transição funcionar */
-    position: absolute;
-    top: 75px;
-    right: 24px;
-    background-color: #111827;
-    border: 1px solid #1e293b;
-    border-radius: 8px;
-    flex-direction: column;
-    padding: 0px 20px; /* Começa sem padding vertical para não quebrar o efeito */
-    gap: 20px;
-    min-width: 200px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-    z-index: 9;
-
-    /* REGRAS DO EFEITO DE TRANSIÇÃO (ELES COMEÇAM ESCONDIDOS) */
-    max-height: 0;         /* Altura zerada */
-    opacity: 0;            /* Totalmente invisível */
-    overflow: hidden;      /* Esconde o texto enquanto estiver fechado */
-    pointer-events: none;  /* Impede cliques enquanto estiver fechado */
-    transition: max-height 0.5s ease-in-out, opacity 0.4s ease-in-out, padding 0.5s ease-in-out;
-  }
-
-  .menu-links.active {
-    max-height: 400px;     /* Define uma altura máxima para ele expandir */
-    opacity: 1;            /* Fica totalmente visível */
-    padding: 20px;         /* Devolve o preenchimento interno */
-    pointer-events: auto;  /* Permite clicar nos links novamente */
-  }
