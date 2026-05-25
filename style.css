@@ -17,7 +17,7 @@ body {
 }
 
 /* ==========================================================================
-   2. BARRA DE NAVEGAÇÃO (NAVBAR)
+   2. BARRA DE NAVEGAÇÃO & MENU DROPDOWN
    ========================================================================== */
 .navbar {
   display: flex;
@@ -34,8 +34,9 @@ body {
   font-weight: bold;
 }
 
+/* Botão de Menu agora aparece no PC também */
 .menu-btn {
-  display: none; /* Escondido no PC */
+  display: flex; 
   background: none;
   border: none;
   cursor: pointer;
@@ -54,14 +55,35 @@ body {
   border-radius: 2px;
 }
 
-/* Menu normal do Computador */
+/* Menu Dropdown Universal (Abre e fecha ao clicar) */
 .menu-links {
   display: flex;
-  gap: 30px;
+  position: absolute;
+  top: 75px;
+  right: 40px;
+  background-color: #111827;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  flex-direction: column;
+  padding: 0px 20px;
+  gap: 20px;
+  min-width: 200px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  z-index: 9;
+  
+  /* Animação escondida inicialmente */
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transition: max-height 0.5s ease-in-out, opacity 0.4s ease-in-out, padding 0.5s ease-in-out;
+}
+
+.menu-links.active {
+  max-height: 400px;
   opacity: 1;
-  max-height: none;
+  padding: 20px;
   pointer-events: auto;
-  overflow: visible;
 }
 
 .menu-links a {
@@ -476,45 +498,15 @@ body {
 }
 
 /* ==========================================================================
-   9. RESPONSIVIDADE & MENU MOBILE (CELULAR)
+   9. RESPONSIVIDADE (CELULAR)
    ========================================================================== */
 @media (max-width: 768px) {
   .navbar {
     padding: 20px 24px;
   }
-
-  .menu-btn {
-    display: flex; /* Botão 3 tracinhos aparece no celular */
-  }
-
+  
   .menu-links {
-    display: flex;
-    position: absolute;
-    top: 75px;
-    right: 24px;
-    background-color: #111827;
-    border: 1px solid #1e293b;
-    border-radius: 8px;
-    flex-direction: column;
-    padding: 0px 20px;
-    gap: 20px;
-    min-width: 200px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-    z-index: 9;
-    
-    /* Animação escondida inicialmente no celular */
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    pointer-events: none;
-    transition: max-height 0.5s ease-in-out, opacity 0.4s ease-in-out, padding 0.5s ease-in-out;
-  }
-
-  .menu-links.active {
-    max-height: 400px;
-    opacity: 1;
-    padding: 20px;
-    pointer-events: auto;
+    right: 24px; /* Ajusta a margem da caixa do menu para o celular */
   }
 
   .about-content {
