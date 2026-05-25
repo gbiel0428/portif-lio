@@ -36,7 +36,7 @@ body {
 
 /* Botão de Menu Hambúrguer */
 .menu-btn {
-  display: flex; 
+  display: flex;
   background: none;
   border: none;
   cursor: pointer;
@@ -70,13 +70,15 @@ body {
   min-width: 200px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
   z-index: 9;
-  
-  /* Animação de descida suave */
+
   max-height: 0;
   opacity: 0;
   overflow: hidden;
   pointer-events: none;
-  transition: max-height 0.5s ease-in-out, opacity 0.4s ease-in-out, padding 0.5s ease-in-out;
+  transition:
+    max-height 0.5s ease-in-out,
+    opacity 0.4s ease-in-out,
+    padding 0.5s ease-in-out;
 }
 
 /* Classe ativada pelo JavaScript */
@@ -129,7 +131,7 @@ body {
   object-fit: cover;
   border: 3px solid #00a8ff;
   box-shadow: 0 0 20px rgba(0, 168, 255, 0.2);
-  background-color: #1e293b; 
+  background-color: #1e293b;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -351,262 +353,6 @@ body {
 }
 
 /* ==========================================================================
-   6. SEÇÃO DE PROJETOS
-   ========================================================================== */
-.projects-container {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 60px 24px;
-  text-align: center;
-}
-
-.projects-container h1 {
-  font-size: clamp(32px, 6vw, 46px);
-  color: #00a8ff;
-  margin-bottom: 10px;
-}
-
-.projects-subtitle {
-  color: #94a3b8;
-  font-size: 16px;
-  max-width: 700px;
-  margin-bottom: 45px;
-  line-height: 1.6;
-}
-
-.projects-grid {
-  width: 100%;
-}
-
-.project-card.single-project {
-  background-color: #111827;
-  border: 2px dashed #00a8ff;
-  border-radius: 12px;
-  padding: 50px 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 180px; 
-  box-shadow: 0 4px 20px rgba(0, 168, 255, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.project-card.single-project:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0, 168, 255, 0.25);
-}
-
-.project-status-badge {
-  background-color: rgba(234, 179, 8, 0.15);
-  color: #eab308;
-  font-size: 14px;
-  font-weight: bold;
-  padding: 10px 20px;
-  border-radius: 6px;
-  letter-spacing: 2px;
-  border: 1px solid rgba(234, 179, 8, 0.3);
-  text-align: center;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% { opacity: 0.7; }
-  50% { opacity: 1; }
-  100% { opacity: 0.7; }
-}
-
-/* ==========================================================================
-   7. SEÇÃO DE CONTATO
-   ========================================================================== */
-.contact-container {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 60px 24px;
-  text-align: center;
-}
-
-.contact-container h1 {
-  font-size: clamp(32px, 6vw, 46px);
-  color: #00a8ff;
-  margin-bottom: 10px;
-}
-
-.contact-subtitle {
-  color: #94a3b8;
-  font-size: 16px;
-  max-width: 600px;
-  margin-bottom: 40px;
-  line-height: 1.5;
-}
-
-.contact-cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 25px;
-  justify-content: center;
-  width: 100%;
-  max-width: 900px;
-}
-
-.card {
-  background-color: #111827;
-  border: 1px solid #1e293b;
-  border-radius: 8px;
-  padding: 25px;
-  flex: 1;
-  min-width: 260px;
-  max-width: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  border-color: #00a8ff;
-}
-
-.card h3 {
-  color: #f8fafc;
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.card p {
-  color: #94a3b8;
-  font-size: 14px;
-  margin-bottom: 20px;
-  word-break: break-all;
-}
-
-.card-btn {
-  display: inline-block;
-  background-color: #1e293b;
-  color: #00a8ff;
-  border: 1px solid #1e293b;
-  padding: 10px 20px;
-  font-size: 14px;
-  font-weight: 600;
-  border-radius: 4px;
-  text-decoration: none;
-  width: 100%;
-  transition: all 0.2s ease-in-out;
-  text-align: center;
-}
-
-.card-btn:hover {
-  background-color: #00a8ff;
-  color: #0a0e14;
-}
-
-.social-links {
-  display: flex;
-  gap: 15px;
-  width: 100%;
-}
-
-.social-links a {
-  flex: 1;
-  text-align: center;
-  background-color: #1e293b;
-  color: #f8fafc;
-  padding: 10px;
-  border-radius: 4px;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 600;
-  transition: all 0.2s ease-in-out;
-}
-
-.social-links a:hover {
-  background-color: #00a8ff;
-  color: #0a0e14;
-}
-
-/* ==========================================================================
-   8. ANIMAÇÕES & EFEITOS DE CLIQUE (:ACTIVE)
-   ========================================================================== */
-.menu-links a:active {
-  transform: scale(0.95);
-  color: #0088cc !important;
-}
-
-.contact-btn:active, 
-.secondary-btn:active,
-.card-btn:active {
-  transform: translateY(1px) scale(0.98) !important;
-  box-shadow: 0 2px 8px rgba(0, 168, 255, 0.2) !important;
-  background-color: #0088cc !important;
-  border-color: #0088cc !important;
-}
-
-.social-links a:active {
-  transform: scale(0.96);
-  background-color: #0088cc !important;
-  color: #0a0e14 !important;
-}
-
-/* Mãozinha acenando */
-.wave {
-  display: inline-block;
-  animation: wave-animation 2.5s infinite;
-  transform-origin: 70% 70%;
-}
-
-@keyframes wave-animation {
-  0% { transform: rotate(0deg) }
-  10% { transform: rotate(14deg) }
-  20% { transform: rotate(-8deg) }
-  30% { transform: rotate(14deg) }
-  40% { transform: rotate(-4deg) }
-  50% { transform: rotate(10deg) }
-  60% { transform: rotate(0deg) }
-  100% { transform: rotate(0deg) }
-}
-
-/* Efeito de entrada suave da página */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* ==========================================================================
-   9. RESPONSIVIDADE (AJUSTES PARA CELULAR)
-   ========================================================================== */
-@media (max-width: 768px) {
-  .navbar {
-    padding: 20px 24px;
-  }
-  
-  .menu-links {
-    right: 24px;
-  }
-
-  .about-content {
-    padding: 25px 20px;
-  }
-
-  .contact-cards {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .card {
-    width: 100%;
-    max-width: 100%;
-  }
-}
-
-/* ==========================================================================
    6. SEÇÃO DE PROJETOS (ATUALIZADA)
    ========================================================================== */
 .projects-container {
@@ -705,7 +451,7 @@ body {
   font-size: 14px;
   line-height: 1.6;
   margin-bottom: 20px;
-  flex: 1; /* Força o botão a ir para o rodapé */
+  flex: 1;
 }
 
 /* Tags de Tecnologias */
@@ -745,8 +491,210 @@ body {
   color: #0a0e14;
 }
 
+/* ==========================================================================
+   7. SEÇÃO DE CONTATO
+   ========================================================================== */
+.contact-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px;
+  text-align: center;
+}
+
+.contact-container h1 {
+  font-size: clamp(32px, 6vw, 46px);
+  color: #00a8ff;
+  margin-bottom: 10px;
+}
+
+.contact-subtitle {
+  color: #94a3b8;
+  font-size: 16px;
+  max-width: 600px;
+  margin-bottom: 40px;
+  line-height: 1.5;
+}
+
+.contact-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+  width: 100%;
+  max-width: 900px;
+}
+
+.card {
+  background-color: #111827;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 25px;
+  flex: 1;
+  min-width: 260px;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  gap: 15px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: #00a8ff;
+}
+
+.card h3 {
+  color: #f8fafc;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #94a3b8;
+  font-size: 14px;
+  margin-bottom: 20px;
+  word-break: break-all;
+}
+
+.card-btn {
+  display: inline-block;
+  background-color: #1e293b;
+  color: #00a8ff;
+  border: 1px solid #1e293b;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 4px;
+  text-decoration: none;
+  width: 100%;
+  transition: all 0.2s ease-in-out;
+  text-align: center;
+}
+
+.card-btn:hover {
+  background-color: #00a8ff;
+  color: #0a0e14;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.social-links a {
+  flex: 1;
+  text-align: center;
+  background-color: #1e293b;
+  color: #f8fafc;
+  padding: 10px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+}
+
+.social-links a:hover {
+  background-color: #00a8ff;
+  color: #0a0e14;
+}
+
+/* ==========================================================================
+   8. ANIMAÇÕES & EFEITOS DE CLIQUE (:ACTIVE)
+   ========================================================================== */
+.menu-links a:active {
+  transform: scale(0.95);
+  color: #0088cc !important;
+}
+
+.contact-btn:active,
+.secondary-btn:active,
+.card-btn:active,
+.project-link-btn:active {
+  transform: translateY(1px) scale(0.98) !important;
+  box-shadow: 0 2px 8px rgba(0, 168, 255, 0.2) !important;
+  background-color: #0088cc !important;
+  border-color: #0088cc !important;
+}
+
+.social-links a:active {
+  transform: scale(0.96);
+  background-color: #0088cc !important;
+  color: #0a0e14 !important;
+}
+
+/* Mãozinha acenando */
+.wave {
+  display: inline-block;
+  animation: wave-animation 2.5s infinite;
+  transform-origin: 70% 70%;
+}
+
+@keyframes wave-animation {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  30% { transform: rotate(14deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+  60% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* Efeito de entrada suave da página */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes pulse {
   0% { opacity: 0.7; }
   50% { opacity: 1; }
   100% { opacity: 0.7; }
+}
+
+/* ==========================================================================
+   9. RESPONSIVIDADE (AJUSTES PARA CELULAR)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 20px 24px;
+  }
+
+  .menu-links {
+    right: 24px;
+  }
+
+  .about-content {
+    padding: 25px 20px;
+  }
+
+  .contact-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
 }
