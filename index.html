@@ -1,3 +1,6 @@
+Aqui está seu `index.html` atualizado com um botão direto para o projeto hospedado na Vercel:
+
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -17,26 +20,38 @@
             <span></span>
         </button>
 
-       <nav class="menu-links" id="menuLinks">
-         <a href="index.html" class="active-link">Início</a>
-         <a href="sobre.html">Quem sou eu?</a>
-         <a href="habilidades.html">Habilidades</a>
-         <a href="projetos.html">Projetos</a>
-         <a href="contato.html">Contato</a>
-    </nav>
+        <nav class="menu-links" id="menuLinks">
+            <a href="index.html" class="active-link">Início</a>
+            <a href="sobre.html">Quem sou eu?</a>
+            <a href="habilidades.html">Habilidades</a>
+            <a href="projetos.html">Projetos</a>
+            <a href="contato.html">Contato</a>
+        </nav>
     </header>
 
     <main class="container">
             
-            <div class="hero-text">
-                <h1>Hello World <span class="wave">👋</span></h1>
-                <h2>Eu sou <strong class="highlight">Gabriel Oliveira</strong>,<br>desenvolvedor web focado em criar experiências digitais incríveis.</h2>
+        <div class="hero-text">
+            <h1>Hello World <span class="wave">👋</span></h1>
+
+            <h2>
+                Eu sou <strong class="highlight">Gabriel Oliveira</strong>,
+                <br>
+                desenvolvedor web focado em criar experiências digitais incríveis.
+            </h2>
                 
-                <div class="hero-buttons">
-                    <a href="projetos.html" class="contact-btn">Ver Projetos</a>
-                    <a href="contato.html" class="secondary-btn">Meu Contato</a>
-                </div>
+            <div class="hero-buttons">
+                <a href="https://proejet-o.vercel.app/" 
+                   target="_blank" 
+                   class="contact-btn">
+                   Ver Projeto Online
+                </a>
+
+                <a href="contato.html" class="secondary-btn">
+                    Meu Contato
+                </a>
             </div>
+        </div>
         
     </main>
 
@@ -46,5 +61,7 @@
             menu.classList.toggle('active');
         }
     </script>
+
 </body>
 </html>
+```
