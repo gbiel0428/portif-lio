@@ -697,4 +697,23 @@ body {
   .projects-grid {
     grid-template-columns: 1fr;
   }
+}  
+
+```css
+/* Botão Projeto Online */
+.contact-btn {
+  position: relative;
+  overflow: hidden;
 }
+
+.contact-btn::after {
+  content: "🚀";
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+}
+
+.contact-btn:hover::after {
+  transform: translateX(4px);
+}
+```
+
